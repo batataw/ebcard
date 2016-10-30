@@ -9,6 +9,19 @@ module.exports = {
 
   attributes: {
 
+   identifier : {
+        type : 'string',
+        required : true
+    }
+    , posx : {
+        type : 'string',
+        required : true
+    }
+    , posy : {
+        type: 'string',
+          required: true,
+          unique: true
+    }
   }
 };
 

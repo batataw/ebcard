@@ -33,6 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   'post /device/swop'                   : 'DeviceController.swop',
+  'get /device/get-position'            : 'DeviceController.getPosition',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

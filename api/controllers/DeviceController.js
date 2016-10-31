@@ -41,6 +41,22 @@ module.exports = {
        	});
         
     },
+	
+    getPosition: function (req, res) {
+    	Device.findOne({
+    		identifier: req.param('identifier')
+    	}).exec(function(err, device){            
+            if (device) {       
+                return res.ok({
+                        posx: device.posx,
+                        posy: device.posy
+                    });
+            } else {
+                return res.serverError('Unknown');                	
+            }
+       	});
+        
+    },    
 
     
 };

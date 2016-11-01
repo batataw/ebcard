@@ -9,6 +9,11 @@ module.exports = {
 
   attributes: {
 
+    id: {
+      type: 'integer',
+      primaryKey: true,
+      autoIncrement: true  
+    },
    identifier : {
         type : 'string',
         required : true

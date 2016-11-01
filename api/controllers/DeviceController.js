@@ -32,11 +32,9 @@ module.exports = {
             		posx: req.param('posx'),
                 	posy: req.param('posy'),
 
-
-
                 }).exec(function(error, device) {
                 	if (error) {                		
-                		return res.serverError('Error');
+                		return res.serverError('Device Add Error');
                 	};
                 	if (device) {
                 		return res.ok();	                		

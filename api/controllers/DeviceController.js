@@ -8,6 +8,10 @@
 module.exports = {
 	
     swop: function (req, res) {
+		console.log(req.param('identifier'));
+		console.log(req.param('posx'));
+		console.log(req.param('posy'));
+
     	Device.findOne({
     		identifier: req.param('identifier')
     	}).exec(function(err, device){
@@ -27,6 +31,8 @@ module.exports = {
                 	identifier: req.param('identifier'),
             		posx: req.param('posx'),
                 	posy: req.param('posy'),
+
+
 
                 }).exec(function(error, device) {
                 	if (error) {                		

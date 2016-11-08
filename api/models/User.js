@@ -11,7 +11,12 @@ module.exports = {
 
   attributes: {
 
-   lastname : {
+    login : {
+        type : 'string',
+        required : true,
+        unique: true        
+    },
+    lastname : {
         type : 'string',
         required : true
     }

@@ -18,7 +18,7 @@ module.exports = {
 
             async.auto({
                 findUser: function(cb){
-                    var criteria = { or : [{ email: email },{ login: pseudo }]};
+                    var criteria = { or : [{ email: email },{ login: login }]};
                     User.findOne(criteria).exec(function(err, user){
                         cb(err, user);
                     });
@@ -30,7 +30,7 @@ module.exports = {
                     var user = results.findUser;
                     if (user) {
                     var message;
-                    if(user.login === pseudo) {
+                    if(user.login === login) {
                         message = res.i18n('Pseudo déjà utilisé');
                         errors.pseudo = message;
                       }

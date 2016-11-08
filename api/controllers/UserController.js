@@ -64,9 +64,9 @@ module.exports = {
                 if(err) {
                     return handleErrors(req, res, req.body, errors, err);
                 }
-
-
-
+                else{
+                    return res.ok();	
+                }
 
             });
 

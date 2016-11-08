@@ -24,8 +24,7 @@ module.exports = {
     }
     , posy : {
         type: 'string',
-          required: true,
-          unique: true
+        required: true,
     }
   }
 };

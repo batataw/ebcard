@@ -33,7 +33,7 @@ module.exports = {
                 	posy: req.param('posy'),
 
                 }).exec(function(error, device) {
-                	if (error) {                		
+                	if (error) {						                		
                 		return res.serverError('Device Add Error');
                 	};
                 	if (device) {

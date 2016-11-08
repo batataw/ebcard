@@ -31,12 +31,10 @@ module.exports = {
                     if (user) {
                     var message;
                     if(user.login === login) {
-                        message = res.i18n('Pseudo déjà utilisé');
-                        errors.pseudo = message;
+                        return res.serverError('Login already exists');
                       }
                     else if(user.email === email) {
-                        message = res.i18n('Addresse email déjà utilisée');
-                        errors.email = message;
+                        return res.serverError('Email already exists');
                     }
 
                     var err = {level: 'danger', error:message};
@@ -62,7 +60,7 @@ module.exports = {
             }, function(err, results) {
                 console.log("END ", err);
                 if(err) {
-                    return handleErrors(req, res, req.body, errors, err);
+                    return res.serverError('User Create Error');
                 }
                 else{
                     return res.ok();	

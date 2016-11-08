@@ -57,21 +57,6 @@ module.exports = {
                     User.create(newUser).exec(function(err, userCreated){
                         cb(err, userCreated);
                     });
-                }],
-                renderEmail: ['createUser', function(cb, results){
-                    console.log("renderEmail");
-                    var user = results.createUser;
-                    renderEmail(req, res, cb, user);
-                }],
-                sendEmail: ['renderEmail', function(cb, results){
-                    console.log("sendEmail");
-                    var user = results.createUser;
-                    var email = results.renderEmail;
-                    console.log(email);
-                    MyEmailService.sendEmail(user.email,'Bourse des avoirs vous souhaite la bienvenu.',email.text, email.html);
-                    cb(null, null);
-                    //renderEmail(req, res, cb, results);
-
                 }]
 
             }, function(err, results) {

@@ -45,7 +45,9 @@ module.exports.connections = {
      host: '127.0.0.1',
      user: 'root', //optional
      password: 'root', //optional
-     database: 'rswap' //optional
+     database: 'rswap', //optional
+     charset   : 'utf8',
+     collation : 'utf8_swedish_ci'     
    },
 
   /***************************************************************************

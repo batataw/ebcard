@@ -25,22 +25,18 @@ module.exports = {
 
                 },
                 checkUser: ['findUser', function(cb, results){
-                    console.log('in write_file', JSON.stringify(results));
+
                     var err = null;
                     var user = results.findUser;
                     if (user) {
-                    var message;
-                    if(user.login === login) {
-                        return res.serverError('Login already exists');
-                      }
-                    else if(user.email === email) {
-                        return res.serverError('Email already exists');
-                    }
+                        var message;
+                        if(user.login === login) {
+                            return res.serverError('Login already exists');
+                        }
+                        else if(user.email === email) {
+                            return res.serverError('Email already exists');
+                        }
 
-                    var err = {level: 'danger', error:message};
-
-                    //req.flash('danger', {message : message});
-                    //return view(req, res, req.body, {});
                     }
                     cb(err, null);
 
@@ -73,6 +69,29 @@ module.exports = {
 
 
     },
+    login: function(req, res, next) {
+
+        var login = req.param("login");
+	    var password = req.param("password");
+
+	    if (!(login && login)) {
+	        return res.serverError('Credentials are missing');
+	    }
+
+	    User.findOne({
+	    	login: login
+	    }).exec(function(err, user) {
+	        if (err || !user || !user.actif) {
+	           return res.serverError('Credentials error');
+	        }
+
+            return res.ok();	
+
+
+		});
+
+  	},
+
   /***************************************************************************
   *                                                                          *
   * Appele lorsque l'utilisateur clique sur lien lien de l'email recu lors   *

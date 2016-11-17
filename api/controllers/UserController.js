@@ -75,14 +75,14 @@ module.exports = {
 	    var password = req.param("password");
 
 	    if (!(login && password)) {
-	        return res.serverError('Credentials are missing');
+	        return res.serverError('MISSING');
 	    }
 
 	    User.findOne({
 	    	login: login
 	    }).exec(function(err, user) {
 	        if (err || !user ) {
-	           return res.serverError('Credentials error');
+	           return res.serverError('UNKOWN');
 	        }
 
             return res.ok();	

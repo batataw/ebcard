@@ -69,19 +69,19 @@ module.exports = {
 
 
     },
-    login: function(req, res, next) {
+    login: function(req, res) {
 
         var login = req.param("login");
 	    var password = req.param("password");
 
-	    if (!(login && login)) {
+	    if (!(login && password)) {
 	        return res.serverError('Credentials are missing');
 	    }
 
 	    User.findOne({
 	    	login: login
 	    }).exec(function(err, user) {
-	        if (err || !user || !user.actif) {
+	        if (err || !user ) {
 	           return res.serverError('Credentials error');
 	        }
 

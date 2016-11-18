@@ -59,7 +59,7 @@ module.exports = {
                     return res.serverError('USER-ERROR');
                 }
                 else{
-                    return res.ok('USER-CREATE');	
+                    return res.ok({message: 'USER-CREATE'});	                    
                 }
 
             });

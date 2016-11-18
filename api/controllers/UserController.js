@@ -31,10 +31,10 @@ module.exports = {
                     if (user) {
                         var message;
                         if(user.login === login) {
-                            return res.serverError('Login already exists');
+                            return res.serverError('USER-LOGIN-EXISTS');
                         }
                         else if(user.email === email) {
-                            return res.serverError('Email already exists');
+                            return res.serverError('USER-EMAIL-EXISTS');
                         }
 
                     }
@@ -56,10 +56,10 @@ module.exports = {
             }, function(err, results) {
                 console.log("END ", err);
                 if(err) {
-                    return res.serverError('User Create Error');
+                    return res.serverError('USER-ERROR');
                 }
                 else{
-                    return res.ok();	
+                    return res.ok('USER-CREATE');	
                 }
 
             });
@@ -75,14 +75,14 @@ module.exports = {
 	    var password = req.param("password");
 
 	    if (!(login && password)) {
-	        return res.serverError('MISSING');
+	        return res.serverError('USER-DATA-MISSING');
 	    }
 
 	    User.findOne({
 	    	login: login
 	    }).exec(function(err, user) {
 	        if (err || !user ) {
-	           return res.serverError('UNKOWN');
+	           return res.serverError('USER-UNKOWN');
 	        }
 
             return res.ok();	

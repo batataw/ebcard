@@ -41,7 +41,7 @@ module.exports = {
                     cb(err, null);
 
                 }],
-                createUser: ['findUser', function(cb, results){
+                createUser: ['checkUser', function(cb, results){
                     console.log("createUser");
                     var newUser = {
                         login: login,                        

@@ -89,9 +89,10 @@ module.exports = {
 				if (err || !valid) {
 					console.log('Invalid username and password combination');
 	            	return res.serverError('LOGIN-FAILED');
-				};
-
-                return res.ok();	
+				}
+                else{
+                    return res.ok();
+                }	
 
 			});
             

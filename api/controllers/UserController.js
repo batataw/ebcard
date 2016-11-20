@@ -59,7 +59,7 @@ module.exports = {
                     return res.serverError('USER-ERROR');
                 }
                 else{
-                    return res.send(200, 'USER-CREATE');	                    
+                    return res.ok();	                    
                 }
 
             });
@@ -84,6 +84,17 @@ module.exports = {
 	        if (err || !user ) {
 	           return res.serverError('USER-UNKOWN');
 	        }
+
+	        bcrypt.compare(password, user.hash, function(err, valid) {
+				if (err || !valid) {
+					console.log('message','Invalid username and password combination');
+	            	return res.serverError('LOGIN-FAILED');
+				};
+
+                return res.ok();	
+
+			});
+            
 
             return res.ok();	
 

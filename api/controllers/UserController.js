@@ -87,7 +87,7 @@ module.exports = {
 
 	        bcrypt.compare(password, user.hash, function(err, valid) {
 				if (err || !valid) {
-					console.log('message','Invalid username and password combination');
+					console.log('Invalid username and password combination');
 	            	return res.serverError('LOGIN-FAILED');
 				};
 

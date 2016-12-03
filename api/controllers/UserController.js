@@ -7,6 +7,49 @@
 var bcrypt = require('bcrypt');
 
 module.exports = {
+	profile: function (req, res) {
+
+        if (req.method=="POST")
+        {
+            var id = req.param("id");
+
+            var updateFields = {};            
+        	updateFields.firstname = req.param("firstname");
+	        updateFields.lastname = req.param("lastname");
+            updateFields.mobile = req.param("mobile");
+            updateFields.address = req.param("address");
+            updateFields.jobtitle = req.param("jobtitle");
+            updateFields.company = req.param("company");
+
+            async.auto({
+                findUser: function(cb){
+                    User.findOne({ login: login }).exec(function(err, user){
+                        cb(err, user);
+                    });
+
+                },
+                updateUser: ['findUser', function(cb, results){
+                    User.update(userId, updateFields, function(err, userUpdated){
+                            cb(err, userUpdated);
+                        })
+
+                }],
+            }, function(err, results) {
+                console.log("END ", err);
+                if(err) {
+                    return res.serverError('USER-ERROR');
+                }
+                else{
+                    return res.ok();	                    
+                }
+
+            });
+
+	    	//});
+        }
+
+
+    },    
 	signup: function (req, res) {
 		res.locals.hideBandeau = true;
 

@@ -24,6 +24,22 @@ module.exports = {
         type : 'string',
         required : false
     }
+    , mobile : {
+        type : 'string',
+        required : false
+    }
+    , jobtitle : {
+        type : 'string',
+        required : false
+    }
+    , company : {
+        type : 'string',
+        required : false
+    }
+    , address : {
+        type : 'string',
+        required : false
+    }                
     , email : {
         type: 'string',
           required: true,

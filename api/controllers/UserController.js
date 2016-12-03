@@ -11,7 +11,7 @@ module.exports = {
 
         if (req.method=="POST")
         {
-            var id = req.param("id");
+            var userId = req.param("id");
 
             var updateFields = {};            
         	updateFields.firstname = req.param("firstname");
@@ -23,7 +23,7 @@ module.exports = {
 
             async.auto({
                 findUser: function(cb){
-                    User.findOne({ id: id }).exec(function(err, user){
+                    User.findOne({ id: userId }).exec(function(err, user){
                         cb(err, user);
                     });
 

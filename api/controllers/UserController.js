@@ -23,7 +23,7 @@ module.exports = {
 
             async.auto({
                 findUser: function(cb){
-                    User.findOne({ login: login }).exec(function(err, user){
+                    User.findOne({ id: id }).exec(function(err, user){
                         cb(err, user);
                     });
 

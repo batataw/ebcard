@@ -102,7 +102,7 @@ module.exports = {
                     return res.serverError('USER-ERROR');
                 }
                 else{
-                    return res.ok(userCreated.id);	                    
+                    return res.ok({id:userCreated.id});	                    
                 }
 
             });
@@ -134,7 +134,7 @@ module.exports = {
 	            	return res.serverError('LOGIN-FAILED');
 				}
                 else{
-                    return res.ok();
+                    return res.ok({id:user.id});
                 }	
 
 			});

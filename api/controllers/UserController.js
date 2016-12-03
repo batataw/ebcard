@@ -134,7 +134,7 @@ module.exports = {
 	            	return res.serverError('LOGIN-FAILED');
 				}
                 else{
-                    return res.ok({id:user.id});
+                    return res.json({id:user.id});
                 }	
 
 			});

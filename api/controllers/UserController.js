@@ -102,7 +102,7 @@ module.exports = {
                     return res.serverError('USER-ERROR');
                 }
                 else{
-                    return res.ok();	                    
+                    return res.ok(userCreated.id);	                    
                 }
 
             });
